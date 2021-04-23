@@ -41,7 +41,7 @@ void setup() {
   Wire.write(0x02); //选择模式寄存器
   Wire.write(0x00); //连续测量模式:0x00,单一测量模式:0x01
   Wire.endTransmission();
-//  calibrateMag();  //地磁计校准
+  calibrateMag();  //地磁计校准
 //  int x,y,z;
 //  getRawData(&x,&y,&z); //获取地磁数据
 //  kalmanZ.setAngle(calculateYaw(pitch,roll,x,y,z) * fRad2Deg);  //设定卡尔曼滤波初始值
@@ -79,17 +79,16 @@ void loop() {
 //  kalAngleZ = kalmanZ.getAngle(Geoyaw, gyroZrate, dt); //对偏航角滤波
   
   //float temperature = realVals[3] / 340.0 + 36.53;  //计算温度
-  
-//  Serial.print("accangleX:");Serial.print(roll);
-//  Serial.print(" kalAngleX:");Serial.print(kalAngleX);
-//  Serial.print(" accangleY:");Serial.print(pitch);
-//  Serial.print(" kalAngleY:");Serial.print(kalAngleY);
-//  
-//  Serial.print(" Geoyaw:");Serial.print(Geoyaw);
+  Serial.print("accangleX:");Serial.print(roll);
+  Serial.print(" kalAngleX:");Serial.print(kalAngleX);
+  Serial.print(" accangleY:");Serial.print(pitch);
+  Serial.print(" kalAngleY:");Serial.print(kalAngleY);
+//  Serial.print(" Gryoyaw:");Serial.print(Gryoyaw);
+  Serial.print(" Geoyaw:");Serial.print(Geoyaw);
 ////  Serial.print(" kalAngleZ:");Serial.print(kalAngleZ);
-//  Serial.print("\r\n");
-  int yrp[] = {kalAngleX,kalAngleY,Geoyaw};
-  Serial.print(String(yrp[0])+','+String(yrp[1])+','+String(yrp[2])+'\n');
+  Serial.print("\r\n");
+//  int yrp[] = {kalAngleX,kalAngleY,Geoyaw};
+//  Serial.print(String(yrp[0])+','+String(yrp[1])+','+String(yrp[2])+'\n');
   delay(100);
 }
 
